@@ -1,0 +1,9 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+    <h1>{{ user.username }}'s Profile</h1>
+    <p><strong>Skills:</strong> {{ profile.skills }}</p>
+    <p><strong>Experience:</strong> {{ profile.experience }}</p>
+    <p><strong>Education:</strong> {{ profile.education }}</p>
+    <a href="{% url 'profile_edit_view' %}">Edit Profile</a>
+{% endblock %}

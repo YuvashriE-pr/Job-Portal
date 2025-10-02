@@ -1,0 +1,26 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+    <div class="d-flex justify-content-between align-items-center">
+        <h3>Your Job Posts</h3>
+        <a class="btn btn-primary" href="{% url 'post_job' %}">Post a Job</a>
+    </div>
+
+    <div class="mt-4">
+        {% for job in jobs %}
+            <div class="card mb-3">
+                <div class="card-body">
+                    <h5 class="card-title">{{ job.title }} at {{ job.company }}</h5>
+                    <p class="card-text">
+                        <span class="text-muted">{{ job.location }} | {{ job.job_type }}</span>
+                    </p>
+                    <a href="{% url 'edit_job' job.id %}" class="btn btn-sm btn-outline-secondary">Edit</a>
+                    <a href="{% url 'delete_job' job.id %}" class="btn btn-sm btn-outline-danger">Delete</a>
+                    <a href="{% url 'view_applications' job.id %}" class="btn btn-sm btn-outline-info">View Applications ({{ job.applications.count }})</a>
+                </div>
+            </div>
+        {% empty %}
+            <p>You haven't posted any jobs yet.</p>
+        {% endfor %}
+    </div>
+{% endblock %}

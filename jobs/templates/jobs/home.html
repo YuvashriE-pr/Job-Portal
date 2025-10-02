@@ -1,0 +1,14 @@
+{% extends 'jobs/base.html' %}
+
+{% block content %}
+    <div class="jumbotron text-center bg-light p-5">
+        <h1 class="display-4">Find Your Dream Job</h1>
+        <p class="lead">Search for thousands of jobs from top companies.</p>
+        <form method="GET" action="{% url 'job_list' %}" class="form-inline justify-content-center mt-4">
+            <div class="form-group mb-2">
+                <input type="text" class="form-control mr-2" name="q" placeholder="Search for jobs..." style="width: 400px;">
+            </div>
+            <button type="submit" class="btn btn-primary mb-2">Search</button>
+        </form>
+    </div>
+{% endblock %}
